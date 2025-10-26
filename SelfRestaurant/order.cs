@@ -38,12 +38,10 @@ namespace SelfRestaurant
             }
             Console.WriteLine();
             Console.WriteLine($"Total : {CalculateTotal()}");
-            //if(user == user)
-            //{
-            //    return;
-            //}
-            //Console.WriteLine( $"Name : {user.Name}  |  UserId : {user.Id}  |   CalculateTotal :" + CalculateTotal());
         }
-        //natavanestam gozaresh porforoosh tarin ghazaha re bedast avaram
+        public List<MenuItem> GetMenuItems()
+        {
+            return menuItems;
+        }
     }
 }

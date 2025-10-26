@@ -15,6 +15,19 @@ namespace SelfRestaurant
         {
             orders.Add(neworder);
         }
+        public string BestSellingFood()
+        {
+            List<MenuItem> allitems = orders.SelectMany(o => o.GetMenuItems()).ToList();
+            var BestSelling = allitems.GroupBy(x => x.Name)
+                .Select(g => new { Name = g.Key, Count = g.Count() })
+                .OrderByDescending(g =>g.Count)
+                .FirstOrDefault();
+            if(BestSelling == null)
+            {
+                Console.WriteLine("No orders have been placed.");
+            }
+            return $"BestSelling Food : {BestSelling.Name} {BestSelling.Count} Nembers";
+        }
 
     }
 }

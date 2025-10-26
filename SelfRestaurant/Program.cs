@@ -4,11 +4,17 @@ internal class Program
 {
     private static void Main(string[] args)
     {
+        Restaurant Nemoone = new Restaurant();
+
+
         User user = new User(1245,"Ali");
         User user2 = new User(8445,"AmirReza");
 
         order FirstOrder = new order();
         order LastOrder = new order();
+
+        Nemoone.AddOrder(FirstOrder);
+        Nemoone.AddOrder(LastOrder);
 
         MenuItem food1 = new MenuItem() { Name = "Barg",Price = 400.000M};
         MenuItem food2 = new MenuItem() { Name = "Chenche",Price = 300.000M};
@@ -23,6 +29,7 @@ internal class Program
         LastOrder.AddItem(food2);
         LastOrder.AddItem(food2);
 
+        Console.WriteLine(Nemoone.BestSellingFood());
         //Console.WriteLine(FirstOrder.CalculateTotal());
 
         FirstOrder.RemoveItem(food1);
